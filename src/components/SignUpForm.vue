@@ -12,13 +12,16 @@
     import {useSignup} from "../composables/useSignup.js"
 
     export default {
-        setup() {
+        setup(props, context) {
             const name = ref("")
             const email = ref("")
             const password = ref("")
 
             const handleSubmit = async () => {
-                await useSignup(email.value, password.value, name.value)
+                const user = await useSignup(email.value, password.value, name.value)
+                if(user){
+                    context.emit("signup");
+                }
             }
 
             return {name, email, password, handleSubmit}

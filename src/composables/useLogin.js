@@ -11,7 +11,6 @@ export const useLogin = () => {
             if (!user) {
                 throw new Error('Imposable to register')
             }
-            alert('successfully logged in')
             return user
         } catch (err) {
             switch (err.code) {
