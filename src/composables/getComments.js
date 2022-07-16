@@ -1,4 +1,4 @@
-import {onSnapshot, collection} from "firebase/firestore"
+import {onSnapshot, collection, query, orderBy} from "firebase/firestore"
 import {firestore} from "../firebase/config";
 import {ref} from "vue"
 
@@ -6,7 +6,7 @@ import {ref} from "vue"
 export const getCommentsCollection = (collectionName) => {
     const comments = ref([])
     const error = ref(null)
-    const collectionRef = collection(firestore, collectionName)
+    const collectionRef = query(collection(firestore, collectionName), orderBy('createdAt'))
 
     // onSnapshot(collectionRef, (snapshot) => {
     //     comments.value = snapshot.docs.map((_doc) => {
