@@ -2,19 +2,19 @@
     <div class="welcome container">
         <p>Welcome</p>
         <div v-if="showForm">
-            <h2>Login</h2>
-            <Login @login="handleEnterChat"/>
-            <p>
-                No account yet?
-                <span @click="showForm = false">Signup</span> instead.
-            </p>
-        </div>
-        <div v-else>
             <h2>Sign up</h2>
             <SignUpForm @signup="handleEnterChat"/>
             <p>
                 Already registered?
-                <span @click="showForm = true">Login</span> instead.
+                <span @click="showForm = false">Login</span> instead.
+            </p>
+        </div>
+        <div v-else>
+            <h2>Login</h2>
+            <Login @login="handleEnterChat"/>
+            <p>
+                No account yet?
+                <span @click="showForm = true">Signup</span> instead.
             </p>
         </div>
     </div>
@@ -31,7 +31,8 @@
         setup() {
             const showForm = ref(false)
             const router = useRouter()
-            const handleEnterChat = () =>{
+
+            const handleEnterChat = () => {
                 router.push("/chatroom")
             }
 

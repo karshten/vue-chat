@@ -1,6 +1,6 @@
 import {ref} from "vue"
+import {auth} from "../firebase/config"
 import {signOut} from "firebase/auth"
-import {auth} from "../firebase/config.js"
 
 const error = ref(null)
 
