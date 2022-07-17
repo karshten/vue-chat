@@ -44,6 +44,10 @@
             }
         }
 
+        .invalid-message {
+            color: #eeeeee;
+        }
+
         .empty-chat {
             color: #fff;
         }
@@ -77,6 +81,11 @@
         & .created-at {
             color: #adadad;
         }
+        
+        button {
+            background: #ffffff;
+            color: #182533;
+        }
     }
 
     .wrapper-light {
@@ -101,6 +110,9 @@
             }
         }
 
+        .invalid-message {
+            color: #182533;
+        }
 
         .empty-chat {
             color: #182533;
@@ -134,6 +146,11 @@
 
         & .created-at {
             color: #999;
+        }
+        
+        button {
+            background: #182533;
+            color:#fff;
         }
     }
 </style>

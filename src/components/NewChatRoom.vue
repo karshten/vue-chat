@@ -1,5 +1,6 @@
 <template>
     <form @submit.prevent="handleSubmit">
+        <h3 class="invalid-message" v-if="isInvalidMessage">Invalid message</h3>
         <textarea
                 @keypress.prevent.enter="handleSubmit"
                 placeholder="Type a message and hit enter to send"
@@ -21,20 +22,24 @@
             const {user} = getUser()
             const {addDocument} = useCollections('comments')
             const comment = ref('')
+            const isInvalidMessage = ref(false)
 
 
             const handleSubmit = async () => {
-                const newComment = {
-                    name: user.value.displayName,
-                    message: comment.value,
-                    createdAt: Timestamp.fromDate(new Date()),
-                    authorId: user.value.uid
-                }
-                comment.value = ''
-                await addDocument(newComment)
+                if (comment.value.trim()) {
+                    isInvalidMessage.value = false
+                    const newComment = {
+                        name: user.value.displayName,
+                        message: comment.value,
+                        createdAt: Timestamp.fromDate(new Date()),
+                        authorId: user.value.uid
+                    }
+                    comment.value = ''
+                    await addDocument(newComment)
+                } else isInvalidMessage.value = true
             }
 
-            return {comment, handleSubmit}
+            return {comment, handleSubmit, isInvalidMessage}
         }
     }
 </script>
@@ -48,7 +53,7 @@
         resize: vertical;
         width: 100%;
         margin-bottom: 6px;
-        padding: 20px 15px;
+        padding: 20px;
         border-radius: 12px;
         outline: none;
         border: #2c3e50 1px solid;
@@ -64,5 +69,9 @@
     .submit {
         display: block;
         margin-left: auto;
+    }
+    .invalid-message {
+        transition: 1s linear;
+        margin: 10px 0 20px;
     }
 </style>
