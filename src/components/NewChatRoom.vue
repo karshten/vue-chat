@@ -1,11 +1,10 @@
 <template>
     <form @submit.prevent="handleSubmit">
         <h3 class="invalid-message" v-if="isInvalidMessage">Invalid message</h3>
-        <textarea
+        <input
                 @keypress.prevent.enter="handleSubmit"
                 placeholder="Type a message and hit enter to send"
                 v-model="comment">
-        </textarea>
         <button class="submit">send message</button>
     </form>
 </template>
@@ -49,7 +48,7 @@
         margin: 20px 0;
     }
 
-    textarea {
+    input {
         resize: vertical;
         width: 100%;
         margin-bottom: 6px;

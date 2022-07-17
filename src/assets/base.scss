@@ -1,0 +1,172 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.container {
+  padding: 20px;
+  width: 90%;
+  max-width: 960px;
+  margin: 80px auto;
+  border-radius: 20px;
+  box-shadow: 2px 4px 6px rgba(28, 6, 49, 0.1);
+}
+
+.error {
+  color: #ff3f80;
+  font-size: 14px;
+}
+
+button {
+  text-decoration: none;
+  background: #182533;
+  color: white;
+  font-weight: bold;
+  border: 0;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.wrapper-dark {
+  min-height: 100vh;
+  border: 1px solid #1f2021;
+  background: #202225;
+
+  & .container {
+    background-color: #2f3136;
+  }
+
+  .welcome {
+
+    &__name {
+      text-align: start;
+      color: #eeeeee;
+      font-size: 14px;
+    }
+
+    &__email {
+      color: #b3b3b3;
+      font-size: 14px;
+    }
+  }
+
+  .invalid-message {
+    color: #eeeeee;
+  }
+
+  .empty-chat {
+    color: #fff;
+  }
+
+  & .title {
+    color: #fff;
+  }
+
+  & .chat-window {
+    background: #36393f;
+  }
+
+  & .single {
+    background-color: #42464d;
+    color: #fff;
+  }
+
+  & .name {
+    color: #bfbfbf;
+  }
+
+  & .chat-window .me {
+    margin-left: auto;
+    background-color: #2b5278;
+  }
+
+  & .message {
+    color: #f5f5f5;
+  }
+
+  & .created-at {
+    color: #adadad;
+  }
+
+  button {
+    background: #ffffff;
+    color: #182533;
+  }
+}
+
+.wrapper-light {
+  min-height: 100vh;
+  border: 1px solid #ffffff;
+  background: #fff;
+
+  & .container {
+    background-color: #ffffff;
+  }
+
+  .welcome {
+
+    &__name {
+      text-align: start;
+      color: #182533;
+      font-size: 14px;
+    }
+
+    &__email {
+      color: #9999;
+      font-size: 14px;
+    }
+  }
+
+  .invalid-message {
+    color: #182533;
+  }
+
+  .empty-chat {
+    color: #182533;
+  }
+
+  & .title {
+    color: #111;
+  }
+
+  & .chat-window {
+    background: #cfd8dc;
+  }
+
+  & .single {
+    background-color: #fff;
+    color: #111111;
+  }
+
+  & .name {
+    color: #111;
+  }
+
+  & .chat-window .me {
+    margin-left: auto;
+    background-color: #bbe6df;
+  }
+
+  & .message {
+    color: #111111;
+  }
+
+  & .created-at {
+    color: #999;
+  }
+
+  button {
+    background: #182533;
+    color: #fff;
+  }
+}

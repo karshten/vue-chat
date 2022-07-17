@@ -11,7 +11,7 @@
                 <span class="created-at">{{doc.createdAt}} ago</span>
             </div>
         </div>
-        <div class="empty-chat"  v-else>
+        <div class="empty-chat" v-else>
             There is no messages yet, be the first one!
         </div>
     </div>
@@ -36,7 +36,7 @@
                     })
                 }
             })
-            onUpdated(()=>{
+            onUpdated(() => {
                 messageBlock.value ? messageBlock.value.scrollTop = messageBlock.value.scrollHeight : null
             })
             return {comments, formattedDocs, error, user, messageBlock}
@@ -54,7 +54,7 @@
         display: block;
         margin: 15px 10px 15px 0;
         max-width: 50%;
-        padding: 10px;
+        padding: 12px 14px;
         border-radius: 12px;
         width: max-content;
     }
@@ -72,6 +72,7 @@
     }
 
     .messages {
+        scroll-behavior: smooth;
         max-height: 400px;
         overflow: auto;
     }
@@ -82,16 +83,18 @@
         margin: 10px 0;
         word-wrap: break-word;
     }
-    
+
     @media (max-width: 768px) {
         .single {
             margin: 18px 0;
-            padding: 7px;
+            padding: 12px;
             max-width: 85%;
         }
+
         .name {
             font-size: 16px;
         }
+
         .message {
             margin: 5px 0;
             font-size: 13px;
