@@ -30,10 +30,8 @@
                     createdAt: Timestamp.fromDate(new Date()),
                     authorId: user.value.uid
                 }
-
-                await addDocument(newComment)
-
                 comment.value = ''
+                await addDocument(newComment)
             }
 
             return {comment, handleSubmit}

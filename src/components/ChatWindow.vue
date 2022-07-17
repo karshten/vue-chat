@@ -11,7 +11,7 @@
                 <span class="created-at">{{doc.createdAt}} ago</span>
             </div>
         </div>
-        <div v-else>
+        <div class="empty-chat"  v-else>
             There is no messages yet, be the first one!
         </div>
     </div>
@@ -24,7 +24,7 @@
     import {getUser} from "../composables/getUser";
 
     export default {
-        setup() {
+        setup(props, context) {
             const {comments, error} = getCommentsCollection('comments')
             const {user} = getUser()
             const messageBlock = ref(null)
@@ -36,10 +36,9 @@
                     })
                 }
             })
-            onUpdated(() => {
-                messageBlock.value.scrollTop = messageBlock.value.scrollHeight
+            onUpdated(()=>{
+                messageBlock.value ? messageBlock.value.scrollTop = messageBlock.value.scrollHeight : null
             })
-
             return {comments, formattedDocs, error, user, messageBlock}
         }
     }
@@ -53,7 +52,7 @@
 
     .single {
         display: block;
-        margin: 15px 0;
+        margin: 15px 10px 15px 0;
         max-width: 50%;
         padding: 10px;
         border-radius: 12px;

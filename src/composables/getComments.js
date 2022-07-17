@@ -8,13 +8,6 @@ export const getCommentsCollection = (collectionName) => {
     const error = ref(null)
     const collectionRef = query(collection(firestore, collectionName), orderBy('createdAt'))
 
-    // onSnapshot(collectionRef, (snapshot) => {
-    //     comments.value = snapshot.docs.map((_doc) => {
-    //         return {..._doc.data(), id: _doc.id}
-    //     })
-    //     comments.value.sort((a, b) => b.timestamp - a.timestamp)
-    // })
-
     onSnapshot(collectionRef, (snap) => {
         const result = snap.docs.map(comment => {
             return {...comment.data(), id: comment.id}

@@ -30,6 +30,24 @@
             background-color: #2f3136;
         }
 
+        .welcome {
+
+            &__name {
+                text-align: start;
+                color: #eeeeee;
+                font-size: 14px;
+            }
+
+            &__email {
+                color: #b3b3b3;
+                font-size: 14px;
+            }
+        }
+
+        .empty-chat {
+            color: #fff;
+        }
+
         & .title {
             color: #fff;
         }
@@ -67,6 +85,25 @@
 
         & .container {
             background-color: #ffffff;
+        }
+
+        .welcome {
+
+            &__name {
+                text-align: start;
+                color: #182533;
+                font-size: 14px;
+            }
+
+            &__email {
+                color: #9999;
+                font-size: 14px;
+            }
+        }
+
+
+        .empty-chat {
+            color: #182533;
         }
 
         & .title {

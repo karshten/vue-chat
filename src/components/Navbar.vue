@@ -1,8 +1,8 @@
 <template>
     <nav v-if="user">
-        <div>
-            <p>Welcome {{user.displayName}}</p>
-            <p class="email">Successfully loged in with email...{{user.email}} </p>
+        <div class="welcome">
+            <p class="welcome__name">Welcome {{user.displayName}}</p>
+            <p class="welcome__email">Successfully loged in with email...{{user.email}} </p>
         </div>
         <button @click="handleClick">Exit</button>
     </nav>
@@ -33,7 +33,7 @@
     };
 </script>
 
-<style>
+<style lang="scss">
     nav {
         border-bottom: 1px solid #eee;
         display: flex;
@@ -45,11 +45,6 @@
         margin: 2px auto;
         font-size: 16px;
         color: #444;
-    }
-
-    nav p.email {
-        font-size: 14px;
-        color: #999;
     }
 
     nav li {
