@@ -9,8 +9,9 @@
 
     export default {
         setup() {
-            const classTheme = ref('wrapper-light')
+            const classTheme = ref(localStorage.getItem('chatTheme') ?? 'wrapper-light')
             const handleChangeClass = (isDark) => {
+                localStorage.setItem('chatTheme', isDark ? 'wrapper-dark' : 'wrapper-light')
                 isDark ? classTheme.value = 'wrapper-dark' : classTheme.value = 'wrapper-light'
             }
 

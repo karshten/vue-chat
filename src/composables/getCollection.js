@@ -3,7 +3,7 @@ import {firestore} from "../firebase/config";
 import {ref} from "vue"
 
 
-export const getCommentsCollection = (collectionName) => {
+export const getCollection = (collectionName) => {
     const comments = ref([])
     const error = ref(null)
     const collectionRef = query(collection(firestore, collectionName), orderBy('createdAt'))

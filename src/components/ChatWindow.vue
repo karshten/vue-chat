@@ -18,14 +18,14 @@
 </template>
 
 <script>
-    import {getCommentsCollection} from "../composables/getComments";
+    import {getCollection} from "../composables/getCollection";
     import {formatDistanceToNow} from "date-fns"
-    import {computed, onUpdated, ref} from "@vue/runtime-core"
+    import {computed, onUpdated, ref} from "vue"
     import {getUser} from "../composables/getUser";
 
     export default {
-        setup(props, context) {
-            const {comments, error} = getCommentsCollection('comments')
+        setup() {
+            const {comments, error} = getCollection('comments')
             const {user} = getUser()
             const messageBlock = ref(null)
             const formattedDocs = computed(() => {
@@ -35,6 +35,7 @@
                         return {...doc, createdAt: time}
                     })
                 }
+                return []
             })
             onUpdated(() => {
                 messageBlock.value ? messageBlock.value.scrollTop = messageBlock.value.scrollHeight : null
